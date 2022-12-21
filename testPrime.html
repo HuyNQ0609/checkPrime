@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prime</title>
+</head>
+<style>
+    input {
+        width: 200px;
+        height: 25px;
+    }
+</style>
+<body>
+    <h1> Check an integer must be a prime or not ?</h1>
+    <p><b>Enter a random number:</b></p>
+    <input type="number" id="number" onchange="isPrime(this.value)" oninput="isPrime(this.value)">
+    <p id = "Result"></p>
+</body>
+<script>
+  function isPrime(number) {
+      if( number >= 10000) {
+          document.getElementById("Result").innerHTML ="Exceeded 9999, please re-enter!";
+          return false;
+      }
+      let aPrime = true;
+      if (number <= 1) {
+          aPrime = false;
+      } else
+          for (let i = 2; i < number; i++) {
+              if (number % i === 0) {
+                  aPrime = false;
+                  break;
+              }
+          }
+          if (aPrime) {
+              document.getElementById("Result").innerHTML = number + " is a prime number";
+          } else {
+              document.getElementById("Result").innerHTML =  number + " is not a prime number";
+      }
+  }
+</script>
+</html>
